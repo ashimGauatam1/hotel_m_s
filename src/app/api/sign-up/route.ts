@@ -1,4 +1,4 @@
-import { dbConnect } from "@/Lib/dbConnect";
+import { dbConnect } from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import bcrypt from "bcryptjs";
 import { SendEmailVerification } from "../resend";
@@ -27,6 +27,14 @@ export async function POST(request: Request) {
         ExistingUser.password = hashpassword;
         ExistingUser.Code = verificationCode;
         await ExistingUser.save();
+        return Response.json(
+          {
+            success: true,
+            message: "User created successfully",
+            user: ExistingUser,
+          },
+          { status: 200 }
+        )
       }
     } else {
       const hashpassword = await bcrypt.hash(password, 10);
@@ -37,6 +45,14 @@ export async function POST(request: Request) {
         email,
       });
       await newuser.save();
+      return Response.json(
+        {
+          success: true,
+          message: "User created successfully",
+          user: newuser,
+        },
+        { status: 200 }
+      )
     }
     const SendVerificationEmail = await SendEmailVerification(
       username,
@@ -69,7 +85,7 @@ export async function POST(request: Request) {
         message: "Internal error",
       },
       {
-        status: 200,
+        status: 500,
       }
     );
   }

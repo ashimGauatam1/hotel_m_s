@@ -1,4 +1,4 @@
-import { dbConnect } from "@/Lib/dbConnect";
+import { dbConnect } from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
