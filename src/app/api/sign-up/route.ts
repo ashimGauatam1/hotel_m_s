@@ -16,7 +16,7 @@ export async function POST(request: Request) {
         return Response.json(
           {
             type: "Error",
-            message: "User is not verified",
+            message: "User already exists",
           },
           {
             status: 400,
@@ -26,8 +26,9 @@ export async function POST(request: Request) {
         const hashpassword = await bcrypt.hash(password, 10);
         ExistingUser.password = hashpassword;
         ExistingUser.Code = verificationCode;
+        console.log(ExistingUser.Code)
         await ExistingUser.save();
-        return Response.json(
+         Response.json(
           {
             success: true,
             message: "User created successfully",
@@ -44,8 +45,10 @@ export async function POST(request: Request) {
         Code: verificationCode,
         email,
       });
+      
+   
       await newuser.save();
-      return Response.json(
+       Response.json(
         {
           success: true,
           message: "User created successfully",
@@ -73,6 +76,7 @@ export async function POST(request: Request) {
         {
           success: true,
           message: "Email sent successfully",
+          user:username
         },
         { status: 200 }
       );

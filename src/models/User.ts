@@ -1,4 +1,4 @@
-import mongoose, { mongo, Schema } from "mongoose";
+import mongoose, {  Schema } from "mongoose";
 
 export interface User extends Document {
   username: string;
@@ -26,8 +26,9 @@ const UserSchema = new Schema({
     type:Boolean,
     default:false,
   },
-  code:{
-    type:Number,
+  Code:{
+    type:String,
+    required: [true, "code is required"],
   }
 });
 

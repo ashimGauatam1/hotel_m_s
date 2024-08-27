@@ -25,8 +25,6 @@ const page = () => {
   const [isloading, Setisloading] = useState(false);
   const [username,Setusername]=useState("")
   const router=useRouter()
-  const debounced = useDebounceCallback(Setusername, 1000);
-
 
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
@@ -40,13 +38,14 @@ const page = () => {
     Setisloading(true);
     try {
       const response = await axios.post("/api/sign-up", data);
+      console.log(response)
       toast({
         title: "Success",
         description: response.data.message,
         variant: "success",
       });
-      console.log(response.data);
-      router.replace(`/verify/${response.data.user.username}`);
+      const username=response.data.user
+      router.replace(`/verify-code/${username}`);
     } catch (error) {
       console.log(error);
       toast({
