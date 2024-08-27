@@ -1,11 +1,11 @@
-import mongoose, {  Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 export interface User extends Document {
   username: string;
   email: string;
   password: string;
-  isVeified:boolean,
-  Code:string
+  isVeified: boolean;
+  Code: string;
 }
 
 const UserSchema = new Schema({
@@ -22,14 +22,14 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "password is required"],
   },
-  isVeified:{
-    type:Boolean,
-    default:false,
+  isVeified: {
+    type: Boolean,
+    default: false,
   },
-  Code:{
-    type:String,
+  Code: {
+    type: String,
     required: [true, "code is required"],
-  }
+  },
 });
 
 const UserModel =
