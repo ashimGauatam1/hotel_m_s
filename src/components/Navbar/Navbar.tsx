@@ -4,7 +4,7 @@ import { Fragment } from "react";
 export const Navbar = () => {
   return (
     <Fragment>
-      <div className="top-0 py-1 lg:py-2 w-full bg-[#f3f4f6] lg:relative z-50 dark:bg-gray-900 -mb-10">
+      <div className="top-0 py-1 lg:py-2 w-full bg-[#f3f4f6] lg:relative z-50 dark:bg-gray-900 -mb-20">
         <nav className="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
           <div className="flex items-center justify-between">
             <button>
