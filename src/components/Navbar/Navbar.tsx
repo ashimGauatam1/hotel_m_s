@@ -4,52 +4,121 @@ import { Fragment } from "react";
 export const Navbar = () => {
   return (
     <Fragment>
-     <nav className="bg-gray-800 text-white shadow-lg -mb-20">
-        <div className="container mx-auto flex justify-between items-center p-4">
-            {/* <!-- Logo and Name --> */}
-            <div className="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 19l-7-7 7-7 7 7-7 7z" />
-                </svg>
-                <span className="text-2xl font-bold text-teal-400">MySite</span>
+      <nav className="bg-white border-gray-200 py-2.5 dark:bg-gray-900 ">
+        <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+          <Link href="/" className="flex items-center">
+            <img
+              src="https://www.svgrepo.com/show/499962/music.svg"
+              className="h-6 mr-3 sm:h-9"
+              alt="Landwind Logo"
+            />
+            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              Landwind
+            </span>
+          </Link>
+          <div className="flex items-center lg:order-2">
+            <div className="hidden mt-2 mr-4 sm:inline-block">
+              <span></span>
             </div>
 
-            {/* <!-- Navigation Links --> */}
-            <div className="hidden md:flex space-x-6">
-                <a href="#" className="nav-link text-gray-300 hover:text-teal-400">Home</a>
-                <a href="#" className="nav-link text-gray-300 hover:text-teal-400">Our Services</a>
-                <a href="#" className="nav-link text-gray-300 hover:text-teal-400">About</a>
-                <a href="#" className="nav-link text-gray-300 hover:text-teal-400">Contact</a>
-            </div>
-
-            {/* <!-- Authentication Buttons --> */}
-            <div className="hidden md:flex space-x-4">
-                <a href="#" className="btn px-4 py-2 border border-teal-400 rounded-md text-teal-400 hover:bg-teal-400 hover:text-white">Login</a>
-                <a href="#" className="btn px-4 py-2 bg-teal-400 rounded-md text-white hover:bg-teal-500">Sign Up</a>
-            </div>
-
-            {/* <!-- Mobile Menu Button --> */}
-            <div className="md:hidden flex items-center">
-                <button id="menu-button" className="text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
+            <a
+              href="https://themesberg.com/product/tailwind-css/landing-page"
+              className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+            >
+              Download
+            </a>
+            <button
+              data-collapse-toggle="mobile-menu-2"
+              type="button"
+              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="mobile-menu-2"
+              aria-expanded="true"
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <svg
+                className="hidden w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+            id="mobile-menu-2"
+          >
+            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+              <li>
+                <Link
+                  href="/"
+                  className="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                  aria-current="page"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Company
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/sign-in"
+                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Log-In
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/sign-up"
+                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Sign-up
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        {/* <!-- Mobile Menu --> */}
-        <div id="menu" className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden">
-            <div className="flex flex-col items-center justify-center h-full space-y-6">
-                <a href="#" className="nav-link text-white text-xl">Home</a>
-                <a href="#" className="nav-link text-white text-xl">Our Services</a>
-                <a href="#" className="nav-link text-white text-xl">About</a>
-                <a href="#" className="nav-link text-white text-xl">Contact</a>
-                <a href="#" className="btn px-4 py-2 border border-teal-400 rounded-md text-teal-400 hover:bg-teal-400 hover:text-white">Login</a>
-                <a href="#" className="btn px-4 py-2 bg-teal-400 rounded-md text-white hover:bg-teal-500">Sign Up</a>
-            </div>
-        </div>
-    </nav>
+      </nav>
     </Fragment>
   );
 };
