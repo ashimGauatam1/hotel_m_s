@@ -16,8 +16,17 @@ export async function middleware(request: NextRequest) {
   ) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
-  if(!token && url.pathname.startsWith("/dashboard")) {
+  if(!token && url.pathname.startsWith("/dashboard")||
+  url.pathname.startsWith("/staffpage")
+) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
+  }
+  if (token && token.role !== "staff" && url.pathname.startsWith("/staffpage")) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
+  if (token && token.role === "staff" && url.pathname.startsWith("/staffpage")) {
+    return NextResponse.next();
   }
 
   return NextResponse.next();

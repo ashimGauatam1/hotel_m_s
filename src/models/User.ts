@@ -6,6 +6,7 @@ export interface User extends Document {
   password: string;
   isVeified: boolean;
   Code: string;
+  role: string;
 }
 
 const UserSchema = new Schema({
@@ -30,6 +31,12 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "code is required"],
   },
+  role:{
+    type:String,
+    default:"user",
+    required:[true,"role is required"]
+
+  }
 });
 
 const UserModel =

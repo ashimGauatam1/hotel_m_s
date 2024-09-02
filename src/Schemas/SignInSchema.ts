@@ -11,6 +11,6 @@ export const SignInSchema = z.object({
   password: z
     .string()
     .min(5, { message: "password Should be atleast 5 character" }),
-   
+   role:z.string().optional()
    
 });
