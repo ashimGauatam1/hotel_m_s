@@ -11,11 +11,11 @@ import { Fragment } from "react";
 const CarouselComponent = () => {
   return (
     <Fragment>
-      <Carousel>
+      <Carousel className="w-full h-auto">
         <CarouselContent>
           <CarouselItem>
             
-            <div className="carousel-items flex -mt-20">
+            <div className="carousel-item min-w-full flex-shrink-0 -mt-20">
               <div className="carousel-item min-w-full flex-shrink-0">
                 <img
                   src="https://img.freepik.com/free-photo/type-entertainment-complex-popular-resort-with-pools-water-parks-turkey-with-more-than-5-million-visitors-year-amara-dolce-vita-luxury-hotel-resort-tekirova-kemer_146671-18728.jpg?t=st=1724936052~exp=1724939652~hmac=b2d60105d94beb8eb36612f71a6b00d89c0c4daeae89a01025478686e9e78f09&w=996"

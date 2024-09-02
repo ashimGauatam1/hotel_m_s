@@ -60,8 +60,13 @@ const page = () => {
 
   return (
     <Fragment>
-      <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+      <div 
+       className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+       style={{
+         backgroundImage: 'url("https://img.freepik.com/free-photo/outdoor-patio-with-table-chair_74190-2452.jpg?t=st=1725287497~exp=1725291097~hmac=a225df2b6ddd59c059b33f60907af3fa4f472045c5f6d4b991472e7882397ac6&w=996")',
+       }}
+      >
+        <div className="w-full max-w-md p-8  inset-0 bg-black bg-opacity-30 backdrop-blur-sm rounded-md">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">
             Create Your Account
           </h2>
@@ -79,7 +84,7 @@ const page = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-black">
                       This is your public display username.
                     </FormDescription>
                     <FormMessage />
@@ -100,7 +105,7 @@ const page = () => {
                         
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-black">
                       Please enter a valid email.
                     </FormDescription>
                     <FormMessage />
@@ -121,7 +126,7 @@ const page = () => {
                         
                       />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-black">
                       Enter a valid password.
                     </FormDescription>
                     <FormMessage />
@@ -129,9 +134,9 @@ const page = () => {
                 )}
               />
               {isloading?
-              <Button type="submit" className="bg-green-800"><Loader2 className="mr-2 h-4 w-4 animate-spin"/>please Wait</Button>
+              <Button type="submit" className="bg-teal-800"><Loader2 className="mr-2 h-4 w-4 animate-spin"/>please Wait</Button>
               :
-              <Button type="submit"  >Submit</Button>
+              <Button type="submit" className="bg-teal-800 hover:bg-teal-500" >Submit</Button>
               }
 
             </form>

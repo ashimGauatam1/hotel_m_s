@@ -5,6 +5,7 @@ import { getToken } from "next-auth/jwt";
 
 export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request });
+  console.log(token);
   const url = request.nextUrl;
   if (
     token &&
@@ -21,17 +22,17 @@ export async function middleware(request: NextRequest) {
 ) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
-  if (token && token.role !== "staff" && url.pathname.startsWith("/staffpage")) {
+  if (token && token.role == "user" && url.pathname.startsWith("/staffpage")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
   if (token && token.role === "staff" && url.pathname.startsWith("/staffpage")) {
     return NextResponse.next();
   }
-
+ 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/sign-in", "/sign-up", "/verify", "/"],
+  matcher: ["/sign-in", "/sign-up", "/verify", "/staffpage", "/"],
 };

@@ -72,9 +72,14 @@ const page = () => {
 
   return (
     <Fragment>
-      <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-6 text-purple-950 text-center">
+      <div
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("https://img.freepik.com/free-vector/vector-cartoon-interior-hotel-bedroom-night_33099-1217.jpg?t=st=1725287624~exp=1725291224~hmac=9fd90acfa691505b95025b166a934d6f754c7b983fb50cd284531aeacfd43200&w=1380")',
+        }}
+      >
+        <div className="w-full max-w-md p-8  inset-0 bg-black bg-opacity-30 backdrop-blur-sm rounded-md">
+          <h2 className="text-2xl font-bold mb-6 text-teal-400 text-center">
             Login
           </h2>
           <Form {...form}>
@@ -84,11 +89,11 @@ const page = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-white">Email</FormLabel>
                     <FormControl>
                       <Input type="email" placeholder="email" {...field} />
                     </FormControl>
-                    <FormDescription>
+                    <FormDescription className="text-white">
                       Please enter a valid email.
                     </FormDescription>
                     <FormMessage />
@@ -100,7 +105,7 @@ const page = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="text-white">Password</FormLabel>
                     <FormControl>
                       <Input
                         type="password"
@@ -108,18 +113,18 @@ const page = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>Enter a valid password.</FormDescription>
+                    <FormDescription className="text-white">Enter a valid password.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               {isloading ? (
-                <Button type="submit" className="bg-green-800">
+                <Button type="submit" className="bg-teal-700 hover:bg-teal-600">
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   please Wait
                 </Button>
               ) : (
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="bg-teal-700 hover:bg-teal-600">Submit</Button>
               )}
             </form>
           </Form>
