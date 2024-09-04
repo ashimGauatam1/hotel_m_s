@@ -1,4 +1,5 @@
 "use client";
+import { Mountain } from "lucide-react";
 import { User } from "next-auth";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -8,18 +9,13 @@ export const Navbar = () => {
   const {data:session}=useSession();
   const user:User= session?.user
 
-  console.log(user)
   return (
     <Fragment>
-      <nav className="bg-gray-400 border-gray-200 py-2.5 dark:bg-gray-900 ">
+      <nav className="bg-gray-800 border-gray-200 py-2.5 dark:bg-gray-900 ">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <Link href="/" className="flex items-center">
-            <img
-              src="https://www.svgrepo.com/show/499962/music.svg"
-              className="h-6 mr-3 sm:h-9"
-              alt="Landwind Logo"
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+          <Mountain className="h-6 w-6 text-yellow-400" />
+            <span className="ml-2 self-center text-xl font-semibold whitespace- text-white dark:text-white">
               DaiKoHotel
             </span>
          </Link>
@@ -30,7 +26,7 @@ export const Navbar = () => {
 
             <a
               href="/"
-              className="text-white bg-teal-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
+              className="text-white bg-teal-700 hover:bg-yellow-400 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
             >
               Download
             </a>
@@ -76,7 +72,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="block py-2 pl-3 pr-4 text-white bg-red-700 rounded lg:bg-transparent lg:text-purple-800 lg:p-0 dark:text-white"
+                  className="block py-2 pl-3 pr-4 text-white bg-red-700 rounded lg:bg-transparent lg:hover:text-teal-400 lg:text-white lg:p-0 dark:text-white"
                   aria-current="page"
                 >
                   Home
@@ -84,25 +80,25 @@ export const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  href="/bookroom"
+                  className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  kkkk
+                  Book
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                <Link
+                  href="/Feature"
+                  className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Features
-                </a>
+                </Link>
               </li>
               {!user ?
                 <><li>
                 <Link
                   href="/sign-in"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Log-In
                 </Link>
@@ -110,7 +106,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   href="/sign-up"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Sign-up
                 </Link>
@@ -120,7 +116,7 @@ export const Navbar = () => {
               <li>
                 <Link
                   href="/sign-up"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                  Logout
                 </Link>
@@ -128,12 +124,12 @@ export const Navbar = () => {
               </>
               }
               <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                <Link
+                  href="/contact"
+                  className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

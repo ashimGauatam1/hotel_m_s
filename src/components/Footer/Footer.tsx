@@ -10,7 +10,7 @@ const Footer = () => {
             <span className="text-lg font-bold tracking-tight">DaiKoHotel</span>
           </a>
           <p className="text-gray-300">
-            Nestled in the heart of the city, Acme Hotel offers a luxurious and comfortable stay for all our guests.
+            Nestled in the heart of the city, DaiKoHotel offers a luxurious and comfortable stay for all our guests.
           </p>
         </div>
         <div className="grid gap-2">
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-start gap-2">
           <p className="text-gray-400 text-sm border-t-2 border-gray-700 pt-4 mt-4">
-            &copy; 2024 Acme Hotel. All rights reserved.
+            &copy; 2024 DaiKoHotel. All rights reserved.
           </p>
         </div>
       </div>
