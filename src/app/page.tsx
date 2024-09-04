@@ -4,11 +4,10 @@ import 'animate.css';
 import Message from "@/components/message/message";
 import { getToken } from "next-auth/jwt";
 import Gallary from "@/components/gallary/gallary";
-import Footer from "@/components/Footer/Footer";
 export default async function Home() {
  return (
     
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-200 ">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-200 -mt-10 ">
      <CarouselComponent/>
      <section className="">
      <h2 className="text-4xl text-teal-800 text-center font-extrabold mt-10 animate-fadeIn">
@@ -27,13 +26,11 @@ export default async function Home() {
     <Message/>
     <Gallary/>
     <div className="relative w-screen h-[80vh] overflow-hidden">
-      {/* Background Image */}
       <img
         src="https://img.freepik.com/free-photo/vintage-twilight-pool-nature-light_1203-5731.jpg?t=st=1725449357~exp=1725452957~hmac=02fa10a00339426fa359ea68629d0b3f2841e6dcc2a83ddc1b3fcc5a156a7f95&w=996"
         alt="Hero Image"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Overlay and Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 bg-black/50 p-4 text-center text-white">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white/2 font-serif">
         Experience Luxury Like Never Before

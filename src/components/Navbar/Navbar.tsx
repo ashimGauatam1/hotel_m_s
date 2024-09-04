@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   return (
     <Fragment>
-      <nav className="bg-gray-800 border-gray-200 py-2.5 dark:bg-gray-900 ">
+      <nav className="bg-gray-800 border-gray-200 py-2.5 dark:bg-gray-900 mb-10">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <Link href="/" className="flex items-center">
           <Mountain className="h-6 w-6 text-yellow-400" />
@@ -65,10 +65,10 @@ export const Navbar = () => {
             </button>
           </div>
           <div
-            className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+            className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1  "
             id="mobile-menu-2"
           >
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
               <li>
                 <Link
                   href="/"
