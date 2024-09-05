@@ -8,7 +8,7 @@ import { Fragment } from "react";
 export const Navbar = () => {
   const {data:session}=useSession();
   const user:User= session?.user
-
+  console.log(user)
   return (
     <Fragment>
       <nav className="bg-gray-800 border-gray-200 py-2.5 dark:bg-gray-900 mb-10">

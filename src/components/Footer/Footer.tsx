@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram, Mountain } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -26,6 +27,7 @@ const Footer = () => {
               <Instagram className="h-6 w-6" />
             </a>
           </div>
+          <Link href="/staffpage" className='text-gray-400 hover:text-yellow-400 transition-colors duration-300'>Staff Page</Link>
         </div>
         <div className="grid gap-2">
           <h4 className="text-lg font-semibold border-b-2 border-yellow-400 pb-2 mb-4">Policies</h4>
@@ -39,6 +41,7 @@ const Footer = () => {
             Cancellation Policy
           </a>
         </div>
+        
         <div className="flex flex-col items-start gap-2">
           <p className="text-gray-400 text-sm border-t-2 border-gray-700 pt-4 mt-4">
             &copy; 2024 DaiKoHotel. All rights reserved.

@@ -26,6 +26,7 @@ interface FormData {
 
 const page = () => {
   const router=useRouter()
+  router.refresh()
   const url = new URL(window.location.href);
   const roomtype = url.searchParams.get('roomtype') || "";
   const price = url.searchParams.get('price') || "";
@@ -104,7 +105,7 @@ const page = () => {
                 <Label htmlFor="name" className="text-sm font-medium">Name</Label>
                 <div className="flex items-center gap-4">
                   <UserIcon className="h-5 w-5 text-muted-foreground" />
-                  <Input required id="name" className="w-50" placeholder="e.g., Ashim Gautam" value={formData.name} onChange={handleChange} />
+                  <Input required maxLength={15} id="name" className="w-50" placeholder="e.g., Ashim Gautam" value={formData.name} onChange={handleChange} />
                 </div>
               </div>
               <div className="grid gap-2">
