@@ -27,7 +27,6 @@ export default function RootLayout({
      
 
         <Toaster/>
-        <Footer/>
       </body>
       </AuthProvider>
     </html>
