@@ -48,6 +48,7 @@ const BookSchema = new Schema({
   },
   roomnum: {
     type: String,
+    default:"0"
   },
   status: {
     type: String,

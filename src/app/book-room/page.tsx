@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -26,7 +26,7 @@ interface FormData {
 
 const page = () => {
   const router=useRouter()
-  router.refresh()
+  
   const url = new URL(window.location.href);
   const roomtype = url.searchParams.get('roomtype') || "";
   const price = url.searchParams.get('price') || "";
@@ -40,7 +40,9 @@ const page = () => {
     requests: "",
     numberofguests: "1", 
   });
-
+useEffect(()=>{
+  router.refresh()
+},[roomtype,price])
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
@@ -171,7 +173,7 @@ const page = () => {
               <div className="grid gap-2">
                 <Label htmlFor="special-requests" className="text-sm font-medium">Special Requests</Label>
                 <div className="flex items-start gap-2">
-                  <Textarea rows={3} placeholder="Early check-in, extra towels, etc." onChange={handleChange} />
+                  <Textarea id="requests" rows={3} placeholder="Early check-in, extra towels, etc." onChange={handleChange} />
                   <FilePenIcon className="h-5 w-5 text-muted-foreground" />
                 </div>
               </div>

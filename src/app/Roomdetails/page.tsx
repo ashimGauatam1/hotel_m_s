@@ -3,7 +3,6 @@ import { CheckIcon, CoffeeIcon, TvIcon, WifiIcon } from "lucide-react";
 import Link from "next/link";
 import { Button, DayPickerProvider } from "react-day-picker";
 
-// Example room data
 const roomData = [
   { type: "Deluxe", price: "179.00", description: "Spacious and comfortable, ideal for couples or small families." },
   { type: "Superior", price: "179.00", description: "Spacious and comfortable, ideal for couples or small families." },
