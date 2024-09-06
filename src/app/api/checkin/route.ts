@@ -6,7 +6,7 @@ import BookRoom from "@/models/BookRoom";
 export async function POST(request:Request){
     await dbConnect();
     try {
-        const {id,roomnum}=await request.json();
+        const {id,roomnum,staff}=await request.json();
         const findRoom=await BookRoom.findById(id);
         if(!findRoom){
             return Response.json({
@@ -14,7 +14,7 @@ export async function POST(request:Request){
                 message:"user not found"
             })
         }
-        else if(findRoom.paid){
+        else if(findRoom.status==="checked"){
             return Response.json({
                 title:"error",
                 message:"user already checked in"
@@ -22,14 +22,17 @@ export async function POST(request:Request){
         }
         else{
             const updateRoom=await BookRoom.findByIdAndUpdate(id,
-                { $set: { roomnum } },
+                { $set: { roomnum ,staff} },
+               
                 { new: true } 
             )
+            findRoom.status="checked"
+            await findRoom.save();
             await updateRoom?.save();
             return Response.json({
                 title:"success",
                 message:"user updated",
-                newuser:updateRoom
+                newuser:findRoom
             })
         }
     } catch (error) {

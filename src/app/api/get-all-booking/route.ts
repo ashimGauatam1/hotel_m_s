@@ -4,14 +4,15 @@ import BookRoom from "@/models/BookRoom";
 export async function GET(){
     await dbConnect();
     try {
-        const getBookinguser=await BookRoom.find({paid:false});
+        const getBookinguser=await BookRoom.find({status:""});
+        
         if(!getBookinguser){
             return Response.json({
                 title:"error",
                 message:"no user"
             },{status:400})
         }else{
-        //    console.log(getBookinguser);
+            console.log(getBookinguser);
            return Response.json({
             title:"success",
             message:"user found",

@@ -12,7 +12,9 @@ export interface BookRoom extends Document {
   roomnum: string;
   status: string;
   roomtype: string;
-  amount:string
+  amount:string;
+  staff:string;
+  updatedAt: Date;
 }
 
 const BookSchema = new Schema({
@@ -52,6 +54,7 @@ const BookSchema = new Schema({
   },
   status: {
     type: String,
+    default:""
   },
   roomtype: {
     type: String,
@@ -60,6 +63,13 @@ const BookSchema = new Schema({
   amount:{
     type:String,
     required:[true,"amount is required"]
+  },
+  staff:{
+    type:String
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now(),
   }
 });
 

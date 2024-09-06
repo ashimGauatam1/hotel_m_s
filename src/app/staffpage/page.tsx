@@ -64,6 +64,7 @@ const page = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [room, setRoom] = useState("");
   const [ID, setID] = useState("");
+  const [staff, setStaff] = useState("");
   const filteredBookings = useMemo(() => {
     return bookings.filter((booking) =>
       booking.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -78,17 +79,21 @@ const page = () => {
       setBookings(response.data.guests);
     };
     getuser();
+    const intervalId = setInterval(getuser, 10000);
+
+  return () => clearInterval(intervalId);
   }, []);
 
   const handleCheckIn = async () => {
     const response = await axios.post("/api/checkin", {
       roomnum: room,
       id: ID,
+      staff: staff,
     });
-    console.log(response.data);
+    
+    
   };
 
-  console.log(bookings);
   return (
     <>
       {
@@ -211,6 +216,9 @@ const page = () => {
                                         id="staff"
                                         type="text"
                                         placeholder="Enter staff name"
+                                        onChange={(e) => {
+                                          setStaff(e.target.value);
+                                        }}
                                       />
                                     </div>
                                   </CardContent>
