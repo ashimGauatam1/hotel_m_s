@@ -5,7 +5,7 @@ import BookRoom from "@/models/BookRoom";
 export async function GET(){
     await dbConnect();
     try {
-        const getAllCheckedGuests=await BookRoom.find({paid:true});
+        const getAllCheckedGuests=await BookRoom.find({status:"checked"});
         if(!getAllCheckedGuests){
             return Response.json({
                 title:"Error",

@@ -12,6 +12,7 @@ import {
 import {
   CheckIcon,
   FilePenIcon,
+  Loader2,
   SearchCheckIcon,
   Trash2Icon,
 } from "lucide-react";
@@ -37,6 +38,7 @@ import {
 import { Label } from "@radix-ui/react-label";
 import Link from "next/link";
 import axios from "axios";
+import { toast } from "@/components/ui/use-toast";
 
 const page = () => {
   interface Booking {
@@ -60,6 +62,7 @@ const page = () => {
   const { data: session } = useSession();
   const user = session?.user;
   const router = useRouter();
+  const [loading,Setloading]=useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [room, setRoom] = useState("");
@@ -85,13 +88,34 @@ const page = () => {
   }, []);
 
   const handleCheckIn = async () => {
-    const response = await axios.post("/api/checkin", {
-      roomnum: room,
-      id: ID,
-      staff: staff,
-    });
-    
-    
+    Setloading(true)
+    try {
+      const response = await axios.post("/api/checkin", {
+        roomnum: room,
+        id: ID,
+        staff: staff,
+      });
+      console.log(response)
+      if (response.status == 200) {
+       
+        toast({
+          title:"Success",
+          variant:"success",
+          description:response.data.message,
+        }) 
+      }
+      
+    } catch (error) {
+      console.log(error);
+      toast({
+        title:"Error",
+        variant:"destructive",
+        description:`${error.response.data.message}`,
+      })
+    }
+    finally{
+    Setloading(false)
+    }
   };
 
   return (
@@ -202,17 +226,20 @@ const page = () => {
                                     <div className="space-y-2">
                                       <Label htmlFor="room">Room Number</Label>
                                       <Input
+                                        required
                                         id="roomnum"
                                         type="text"
                                         placeholder="Enter room number"
                                         onChange={(e) => {
                                           setRoom(e.target.value);
                                         }}
+                                        
                                       />
                                     </div>
                                     <div className="space-y-2">
                                       <Label htmlFor="staff">Staff Name</Label>
                                       <Input
+                                      required
                                         id="staff"
                                         type="text"
                                         placeholder="Enter staff name"
@@ -227,7 +254,7 @@ const page = () => {
                                       className="ml-auto hover:bg-teal-600"
                                       onClick={handleCheckIn}
                                     >
-                                      Check In
+                                    {loading?<><Loader2 className="w-5 h-5 animate-spin mr-2"/> <div>Checking In ....</div></>:<div> Check In</div>}
                                     </Button>
                                   </CardFooter>
                                 </Card>

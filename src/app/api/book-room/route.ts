@@ -28,7 +28,6 @@ export async function POST(request:Request) {
       numberofguests,
       roomtype,
       amount,
-      roomnum:"0"
     });
     await NewBooking.save()
     return Response.json({

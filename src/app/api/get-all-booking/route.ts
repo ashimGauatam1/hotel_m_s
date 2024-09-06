@@ -12,7 +12,7 @@ export async function GET(){
                 message:"no user"
             },{status:400})
         }else{
-            console.log(getBookinguser);
+            // console.log(getBookinguser);
            return Response.json({
             title:"success",
             message:"user found",
