@@ -14,12 +14,13 @@ export async function POST(request:Request) {
       numberofguests,
       roomtype,
       amount,
-
+      email
     } =await request.json();
     
-
+    console.log(email)
     const NewBooking = new BookRoom({
       name,
+      email,
       address,
       phone,
       checkin,

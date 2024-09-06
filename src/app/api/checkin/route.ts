@@ -1,6 +1,7 @@
 import { dbConnect } from "@/lib/dbConnect";
 import BookRoom from "@/models/BookRoom";
 import { NextResponse } from "next/server";
+import { SendEmailVerification, SendRoomVerification } from "../resend";
 
 export async function POST(request: Request) {
   await dbConnect();
@@ -26,7 +27,6 @@ export async function POST(request: Request) {
 
     const checkroom = await BookRoom.findOne({ roomnum });
     if (checkroom) {
-        
       return Response.json(
         {
           title: "error",
@@ -58,13 +58,37 @@ export async function POST(request: Request) {
         { new: true }
       );
       findRoom.status = "checked";
-      await findRoom.save();
-      await updateRoom?.save();
-      return Response.json({
-        title: "success",
-        message: "user updated",
-        newuser: findRoom,
-      });
+      // await findRoom.save();
+      // await updateRoom?.save();
+      console.log(findRoom.email)
+      const sendmail =await SendRoomVerification(
+        findRoom.name,
+        findRoom.email,
+        findRoom.checkin,
+        findRoom.checkout,
+        findRoom.requests,
+        findRoom.numberofguests,
+        findRoom.roomnum,
+        findRoom.status,
+        findRoom.roomtype,
+        findRoom.amount,
+        findRoom.staff,
+        findRoom.updatedAt
+      );
+      console.log(sendmail)
+      if (sendmail) {
+        return Response.json({
+          title: "success",
+          message: "user checked in",
+          newuser: findRoom,
+        });
+        
+    }else{
+        return Response.json({
+          title: "error",
+          message: "internal server error",
+        });
+      }
     }
   } catch (error) {
     console.log(error);

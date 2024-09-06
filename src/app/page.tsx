@@ -8,7 +8,7 @@ import Footer from "@/components/Footer/Footer";
 export default async function Home() {
  return (
     <>
-    <main className="flex flex-col items-center justify-between p-24 bg-slate-200 -mt-10 min-h-screen ">
+    <main className="flex flex-col items-center justify-between p-24 bg-slate-200 min-h-screen ">
      <CarouselComponent/>
      <section className="">
      <h2 className="text-4xl text-teal-800 text-center font-extrabold mt-10 animate-fadeIn">

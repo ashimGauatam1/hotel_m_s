@@ -121,13 +121,13 @@ const page = () => {
   return (
     <>
       {
-        //   user?.role!="staff"? <>
-        //   {router.replace('/')}
-        //   </>:
+          user?.role!="staff"? <>
+          {router.replace('/')}
+          </>:
         <>
           <div>
             <h1 className="text-xl font-bold text-right mr-20 text-primary">
-              Welcome{" "}
+              Welcome<div className="text-teal-500 font-bold">{user.username}</div>
             </h1>
             <Link
               href={"/guestlist"}

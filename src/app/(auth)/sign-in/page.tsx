@@ -73,7 +73,7 @@ const page = () => {
   return (
     <Fragment>
       <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat "
         style={{
           backgroundImage: 'url("https://img.freepik.com/free-vector/vector-cartoon-interior-hotel-bedroom-night_33099-1217.jpg?t=st=1725287624~exp=1725291224~hmac=9fd90acfa691505b95025b166a934d6f754c7b983fb50cd284531aeacfd43200&w=1380")',
         }}

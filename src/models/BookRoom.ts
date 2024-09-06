@@ -4,6 +4,7 @@ export interface BookRoom extends Document {
   name: string;
   address: string;
   phone: string;
+  email:string;
   checkin: Date;
   checkout: Date;
   paid: boolean;
@@ -29,6 +30,10 @@ const BookSchema = new Schema({
   phone: {
     type: String,
     requied: [true, "Phone is required"],
+  },
+  email:{
+    type:String,
+    requied:[true,"email is required"]
   },
   checkin: {
     type: Date,

@@ -49,7 +49,7 @@ const page = () => {
 
   return (
     <div>
-      <Card className="col-span-2 lg:col-span-2">
+      <Card className="col-span-2 lg:col-span-2 -ml-2">
         <CardHeader>
           <Link
             href={"/staffpage"}

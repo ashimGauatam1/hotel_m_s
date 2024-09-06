@@ -6,6 +6,10 @@ export const BookRoomSchema = z.object({
     .string(),
     Phone:z.string()
     .length(10,{message:"Phone number should have 10 number"}),
+    email:z
+    .string()
+    .email({message:"enter a valid email"}),
+    
     checkin:z
     .date(),
     checkout:z

@@ -1,17 +1,20 @@
 "use client";
+import axios from "axios";
 import { Mountain } from "lucide-react";
 import { User } from "next-auth";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Fragment } from "react";
 
 export const Navbar = () => {
   const {data:session}=useSession();
   const user:User= session?.user
-  // console.log(user)
+  
+ 
+
   return (
     <Fragment>
-      <nav className="bg-gray-800 border-gray-200 py-2.5 dark:bg-gray-900 mb-10">
+      <nav className="bg-gray-800 border-gray-200 py-2.5 dark:bg-gray-900 m-auto">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <Link href="/" className="flex items-center">
           <Mountain className="h-6 w-6 text-yellow-400" />
@@ -24,12 +27,7 @@ export const Navbar = () => {
               <span></span>
             </div>
 
-            <a
-              href="/"
-              className="text-white bg-teal-700 hover:bg-yellow-400 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800"
-            >
-              Download
-            </a>
+           
             <button
               data-collapse-toggle="mobile-menu-2"
               type="button"
@@ -114,12 +112,12 @@ export const Navbar = () => {
               </>:
               <>
               <li>
-                <Link
-                  href="/sign-up"
+                <button
+                  onClick={() => signOut()}
                   className="block py-2 pl-3 pr-4 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-teal-400 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
                  Logout
-                </Link>
+                </button>
               </li>
               </>
               }
