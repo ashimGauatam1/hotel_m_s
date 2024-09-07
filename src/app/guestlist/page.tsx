@@ -1,11 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { CheckIcon, FilePenIcon, UserCheck2Icon } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { MouseEventHandler, useEffect, useMemo, useState } from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Table,
@@ -18,6 +18,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import axios from "axios";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Label } from "@/components/ui/label";
 const page = () => {
   const [searchGuest, setSearchGuest] = useState("");
   const [filteredGuests, setFilteredGuests] = useState<Guests[]>([]);
@@ -47,6 +49,12 @@ const page = () => {
     getGuests();
   }, []);
 
+  const handleCheckOut = async(ID: string) => async (event: React.MouseEvent<HTMLButtonElement>) => {
+    const response=await axios.post('/api/check-out',{
+      id:ID
+    })
+    console.log(response)
+  }
   return (
     <div>
       <Card className="col-span-2 lg:col-span-2 -ml-2">
@@ -132,27 +140,7 @@ const page = () => {
                     
                     <TableCell className="text-right">
                       <div className="flex items-center gap-2">
-                        <Button
-                          size="icon"
-                          variant="ghost"
-                          className="text-blue-500"
-                        >
-                          <FilePenIcon className="w-4 h-4" />
-                          <span className="sr-only">Edit</span>
-                        </Button>
-                        <Button
-                          size="icon"
-                          variant="ghost"
-                          className={`${
-                            guest.status === "Checked-in"
-                              ? "text-green-500"
-                              : "text-red-500"
-                          }`}
-                        >
-                          <CheckIcon className="w-4 h-4" />
-                          <span className="sr-only">Check-out</span>
-                        </Button>
-                        <Button className="-mr-20 ml-5">Check Out</Button>
+                        <Button variant="default" className="hover:bg-red-600" onClick={handleCheckOut(guest._id)}>checkout</Button>
                       </div>
                     </TableCell>
                   </TableRow>

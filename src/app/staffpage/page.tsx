@@ -125,7 +125,7 @@ const page = () => {
           {router.replace('/')}
           </>:
         <>
-        {!bookings?<>
+        {!session?<>
           <div className="flex flex-col items-center justify-center min-h-screen">
   <Loader2 className="animate-spin h-32 w-32 mb-4" />
   <p className="text-xl font-semibold">Loading...</p>
@@ -136,12 +136,20 @@ const page = () => {
             <h1 className="text-xl font-bold text-right mr-20 text-primary">
               Welcome<div className="text-teal-500 font-bold">{user.username}</div>
             </h1>
+            <div className="flex flex-row gap-4">
             <Link
               href={"/guestlist"}
               className="ml-20 hover:bg-teal-700 bg-black text-white py-2 px-4 rounded"
             >
-              List of Guests
+              List of Active Guests
             </Link>
+            <Link
+              href={"/total-guests"}
+              className=" hover:bg-teal-700 bg-black text-white py-2 px-4 rounded"
+            >
+              Total guestlist
+            </Link>
+            </div>
             <div className="container mx-auto py-8 ">
               <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold">Booking Management</h1>
