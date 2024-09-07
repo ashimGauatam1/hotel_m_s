@@ -125,6 +125,13 @@ const page = () => {
           {router.replace('/')}
           </>:
         <>
+        {!bookings?<>
+          <div className="flex flex-col items-center justify-center min-h-screen">
+  <Loader2 className="animate-spin h-32 w-32 mb-4" />
+  <p className="text-xl font-semibold">Loading...</p>
+</div>
+        </>
+        :
           <div>
             <h1 className="text-xl font-bold text-right mr-20 text-primary">
               Welcome<div className="text-teal-500 font-bold">{user.username}</div>
@@ -274,7 +281,7 @@ const page = () => {
               </div>
             </div>
           </div>
-        </>
+}</>
       }
     </>
   );
