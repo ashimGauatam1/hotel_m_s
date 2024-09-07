@@ -144,41 +144,25 @@ const page = () => {
                 <TableHead>Check-in</TableHead>
                 <TableHead>Check-out</TableHead>
                 <TableHead>Requests</TableHead>
-                <TableHead>Payment</TableHead>
-                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filteredBookings.map((booking, index) => (
                 <TableRow key={booking._id}>
                   <TableCell>{index + 1}</TableCell>
-                  <TableCell>{booking.name}</TableCell>
+                  <TableCell>{booking.name}
+                  <div className="text-sm text-muted-foreground">
+                            {booking.phone}
+                          </div>
+                  </TableCell>
                   <TableCell>{booking.address}</TableCell>
                   <TableCell>{booking.numberofguests}</TableCell>
                   <TableCell>{booking.roomtype}</TableCell>
-                  <TableCell>{booking.amount}</TableCell>
-                  <TableCell>{booking.checkin?.toLocaleString()}</TableCell>
+                   <TableCell>{booking.checkin?.toLocaleString()}</TableCell>
                   <TableCell>{booking.updatedAt ? new Date(booking.updatedAt).toISOString().split('T')[0] : ''}</TableCell>
                   <TableCell>{booking.requests}</TableCell>
-                  <TableCell>
-                    {booking.paid ? (
-                      <Badge variant="secondary" className="bg-green-500 text-white">
-                        Paid
-                      </Badge>
-                    ) : (
-                      <Badge variant="outline" className="bg-red-500 text-white text-center">
-                        Not Paid
-                      </Badge>
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="icon">
-                        <Trash2Icon className="h-4 w-4" />
-                        <span className="sr-only">Delete</span>
-                      </Button>
-                    </div>
-                  </TableCell>
+        
+                  
                 </TableRow>
               ))}
             </TableBody>
