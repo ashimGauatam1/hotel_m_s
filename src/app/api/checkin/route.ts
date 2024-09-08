@@ -58,8 +58,8 @@ export async function POST(request: Request) {
         { new: true }
       );
       findRoom.status = "checked";
-      // await findRoom.save();
-      // await updateRoom?.save();
+      await findRoom.save();
+      await updateRoom?.save();
       console.log(findRoom.email)
       const sendmail =await SendRoomVerification(
         findRoom.name,

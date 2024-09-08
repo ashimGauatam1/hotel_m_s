@@ -60,6 +60,8 @@ const page = () => {
     setSearchTerm(e.target.value);
   };
 
+  console.log(bookings);
+
   useEffect(() => {
     const getuser = async () => {
       try {

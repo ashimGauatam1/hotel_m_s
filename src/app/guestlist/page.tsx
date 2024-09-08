@@ -65,7 +65,7 @@ const page = () => {
           >
             Dashboard
           </Link>
-          <CardTitle className="text-center ">Guest List</CardTitle>
+          <CardTitle className="text-center ">Total Present Guest List</CardTitle>
           <div className="relative w-full max-w-md mx-auto">
             <UserCheck2Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground mx-auto -mr-2 mb-10" />
             <Input
